@@ -1,10 +1,11 @@
-"""Implementation of a graph data structure using python's defaultdict and sets.
+"""Implementation of a graph data structure using python's defaultdict and sets
+which is stored as an adjacency list.
 
 Using collections.defaultdict instead of dict avoids a KeyError from trying to
 add keys that might not exist. defaultdict creates a new key with a default value.
 
 The most optimal paths throughout the warehouse are precomputed using Floyd Warshall's
-All-Pairs Shortest Path Algorithm. The adjacency cost matrix generated from running
+All-Pairs Shortest Path Algorithm. The adjacency matrix generated from running
 this algorithm is used to computed any particular shortest path between two nodes in
 the graph.
 
@@ -12,6 +13,8 @@ Inspired by http://bit.ly/graph-python.
 """
 
 from collections import defaultdict
+import numpy as np
+
 
 class Graph(object):
     """Graph class, undirected by default."""
