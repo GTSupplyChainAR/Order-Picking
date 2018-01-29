@@ -65,10 +65,24 @@ class Graph(object):
                     return new_path
         return None
 
-    def all_pairs_shortest_path(self):
-        """TODO Implementation of Floyd Warshall's All-Pairs Shortest Path Algorithm."""
-        pass
+    def adjacency_matrix(self):
+        """TODO Convert internal representation to an adjacency matrix"""
+        num = len(self._graph)
+        matrix = [["inf" for i in range(num)]
+                  for j in range(num)]  # create num x num matrix filled with "inf"
+        for i, j in [(k, k) for k in range(5)]:  # simplify later
+            matrix[i][j] = 0
+        for k, v in self._graph.items():
+            k
+        return matrix
 
     def __str__(self):
         """Returns a string representation of the graph."""
         return '{}({})'.format(self.__class__.__name__, dict(self._graph))
+
+
+connections = [(1, 2), (2, 3), (2, 4),
+               (3, 4), (5, 6), (6, 3)]
+g = Graph(connections)
+print(g.__str__())
+print(g.adjacency_matrix())

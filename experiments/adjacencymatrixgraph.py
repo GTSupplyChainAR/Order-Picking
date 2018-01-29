@@ -35,7 +35,7 @@ class AdjacencyMatrixGraph(object):
         for _ in range(E):
             v_1 = randrange(0, V)
             v_2 = randrange(0, V)
-            add_edge(v_1, v_2)
+            # add_edge(v_1, v_2)
 
     def num_vertices(self):
         """Getter for number of vertices"""

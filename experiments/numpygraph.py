@@ -78,6 +78,9 @@ class Graph:
         else:
             return dict()
 
+    def allPairsShortestPath(self):
+        mat = self.adjacencyMatrix()
+
 
 def graph(g):
     """ Function to print a graph as adjacency list and adjacency matrix. """
