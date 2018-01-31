@@ -1,23 +1,64 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<center>
+  <table>
+    <tr>
+      <td class="input-td">Rows</td>
+      <td class="input-td"><input type="number" ng-model="x"></td>
+    </tr>
+    <tr>
+      <td class="input-td">Columns</td>
+      <td class="input-td"><input type="number" ng-model="y"></td>
+    </tr>
+  </table>
+  <button ng-click="resetGrid()">Set grid size</button>
+  <button ng-click="findPath()">Find path</button>
+
+<div class="content-container">
+  <div 
+    class="floor rectangle" 
+    ng-class="{'active-tool': activeTool ==='floor'}"
+    ng-click="activeTool = 'floor'">
+    <div class="valign">Floor</div>
+  </div>
+
+  <div 
+    class="shelf rectangle" 
+    ng-class="{'active-tool': activeTool ==='shelf'}"
+    ng-click="activeTool = 'shelf'">
+    <div class="valign">Shelf</div>
+  </div>
+
+  <div 
+    class="start rectangle" 
+    ng-class="{'active-tool': activeTool ==='start'}"
+    ng-click="activeTool = 'start'">
+    <div class="valign">Start</div>
+  </div>
+
+  <div 
+    class="end rectangle" 
+    ng-class="{'active-tool': activeTool ==='end'}"
+    ng-click="activeTool = 'end'">
+    <div class="valign">End</div>
+  </div>
+
+  <div 
+    class="path rectangle" 
+    ng-class="{'active-tool': activeTool ==='path'}">
+    <div class="valign">Path</div>
+  </div>
 </div>
+  
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="content-container">
+    <div ng-repeat="row in grid" >
+      <span ng-repeat="cell in row">
+        <div 
+          class="square"
+          ng-class="{'floor': cell.type === 'floor', 'shelf': cell.type === 'shelf', 'start': cell.type === 'start', 'end': cell.type === 'end', 'path': cell.type === 'path'}" 
+          ng-click="squareClick(cell)"></div>
+      </span>
+    </div>
+  </div>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+  <div class="content-container"></div>
+</center>
