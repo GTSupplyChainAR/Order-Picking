@@ -27,6 +27,12 @@
   display: inline-block;
 }
 
+.inline-button{
+  display: inline-block;
+  width: 100px;
+  /*padding: 10px;*/
+}
+
 .path{
   background-color: #00a1e2;
 }

@@ -15,15 +15,9 @@ def grid_exec():
 
     r = json_str['rows']
     c = json_str['cols']
-    start = json_str['start']
-    end = json_str['end']
-    walls = json_str['walls']
-
-    print r
-    print c
-    print start
-    print end
-    print walls
+    start = tuple(json_str['start'])
+    end = tuple(json_str['end'])
+    walls = tuple([tuple(x) for x in json_str['walls']])
 
     a = pf.AStar()
     a.init_grid(r, c, walls, start, end)

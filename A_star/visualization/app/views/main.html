@@ -2,15 +2,21 @@
   <table>
     <tr>
       <td class="input-td">Rows</td>
-      <td class="input-td"><input type="number" ng-model="x"></td>
+      <td class="input-td">
+        <input class="form-control" type="number" ng-model="x">
+      </td>
     </tr>
     <tr>
       <td class="input-td">Columns</td>
-      <td class="input-td"><input type="number" ng-model="y"></td>
+      <td class="input-td">
+        <input class="form-control" type="number" ng-model="y">
+      </td>
     </tr>
   </table>
-  <button ng-click="resetGrid()">Set grid size</button>
-  <button ng-click="findPath()">Find path</button>
+  <!-- <span class="btn-group"> -->
+    <button class="btn btn-primary" ng-click="resetGrid()">Set grid size</button>
+    <button class="btn btn-primary" ng-click="findPath()">Find path</button>
+  <!-- </span> -->
 
 <div class="content-container">
   <div 
