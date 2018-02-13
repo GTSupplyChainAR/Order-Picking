@@ -19,7 +19,7 @@ def get_shortest(start, ends, walls, r, c):
             min_l = len(path)
             path_ret = path
 
-    return path
+    return path_ret
 
 @app.route('/', methods=['GET'])
 def grid_exec():
