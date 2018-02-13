@@ -26,8 +26,7 @@ angular.module('visualizationApp')
                         'type': 'floor',
                         'x': i,
                         'y': j,
-                        'path': false,
-                        'terminal': false
+                        'path': false
                     };
                 }
             }
