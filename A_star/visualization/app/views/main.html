@@ -13,47 +13,48 @@
       </td>
     </tr>
   </table>
-  <!-- <span class="btn-group"> -->
-    <button class="btn btn-primary" ng-click="resetGrid()">Set grid size</button>
-    <button class="btn btn-primary" ng-click="findPath()">Find path</button>
-  <!-- </span> -->
 
-<div class="content-container">
-  <div 
-    class="floor rectangle" 
-    ng-class="{'active-tool': activeTool ==='floor'}"
-    ng-click="activeTool = 'floor'">
-    <div class="valign">Floor</div>
-  </div>
-
-  <div 
-    class="shelf rectangle" 
-    ng-class="{'active-tool': activeTool ==='shelf'}"
-    ng-click="activeTool = 'shelf'">
-    <div class="valign">Shelf</div>
-  </div>
-
-  <div 
-    class="start rectangle" 
-    ng-class="{'active-tool': activeTool ==='start'}"
-    ng-click="activeTool = 'start'">
-    <div class="valign">Start</div>
-  </div>
-
-  <div 
-    class="end rectangle" 
-    ng-class="{'active-tool': activeTool ==='end'}"
-    ng-click="activeTool = 'end'">
-    <div class="valign">End</div>
-  </div>
-
-  <div 
-    class="path rectangle" 
-    ng-class="{'active-tool': activeTool ==='path'}">
-    <div class="valign">Path</div>
-  </div>
-</div>
+  <br>
   
+  <button class="btn btn-primary" ng-click="resetGrid()">Set grid size</button>
+  <button class="btn btn-primary" ng-click="findPath()">Find path</button>
+  <button class="btn btn-danger" ng-click="resetGrid()">Reset</button>
+
+  <div class="content-container">
+    <div 
+      class="floor rectangle" 
+      ng-class="{'active-tool': activeTool ==='floor'}"
+      ng-click="activeTool = 'floor'">
+      <div class="valign">Floor</div>
+    </div>
+
+    <div 
+      class="shelf rectangle" 
+      ng-class="{'active-tool': activeTool ==='shelf'}"
+      ng-click="activeTool = 'shelf'">
+      <div class="valign">Shelf</div>
+    </div>
+
+    <div 
+      class="start rectangle" 
+      ng-class="{'active-tool': activeTool ==='start'}"
+      ng-click="activeTool = 'start'">
+      <div class="valign">Start</div>
+    </div>
+
+    <div 
+      class="end rectangle" 
+      ng-class="{'active-tool': activeTool ==='end'}"
+      ng-click="activeTool = 'end'">
+      <div class="valign">End</div>
+    </div>
+
+    <div 
+      class="path rectangle" 
+      ng-class="{'active-tool': activeTool ==='path'}">
+      <div class="valign">Path</div>
+    </div>
+  </div>
 
   <div class="content-container">
     <div ng-repeat="row in grid" >
@@ -66,5 +67,24 @@
     </div>
   </div>
 
-  <div class="content-container"></div>
+  <br><br>
+
+  <table ng-if="paths">
+    <tr>
+      <td>Steps:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example" >
+          <button 
+            ng-repeat="path in paths" 
+            type="button" 
+            class="btn btn-primary" 
+            ng-class="{'active': $index === step}"
+            ng-click="setStep($index)">{{$index + 1}}</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+<br><br><br>
+
 </center>
