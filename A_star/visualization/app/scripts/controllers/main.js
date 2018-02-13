@@ -13,7 +13,7 @@ angular.module('visualizationApp')
         $scope.resetGrid = function(x, y){
             $scope.start = null;
             $scope.paths = null;
-            $scope.step = null;
+            $scope.step = 0;
 
             $scope.activeTool = 'shelf';
             $scope.x = 5;
@@ -25,7 +25,9 @@ angular.module('visualizationApp')
                     $scope.grid[i][j] = {
                         'type': 'floor',
                         'x': i,
-                        'y': j
+                        'y': j,
+                        'path': false,
+                        'terminal': false
                     };
                 }
             }
@@ -86,15 +88,13 @@ angular.module('visualizationApp')
         $scope.setPath = function(){
             for (var i = 0; i < $scope.x; i++) {
                 for (var j = 0; j < $scope.y; j++) {
-                    if($scope.grid[i][j].type === 'path'){
-                        $scope.grid[i][j].type = 'floor';
-                    }
+                    $scope.grid[i][j].path = false;
                 }
             }
 
-            for (var i = 0; i < $scope.paths[$scope.step].length; i++) {
+            for (var i = 1; i < $scope.paths[$scope.step].length; i++) {
                 var box = $scope.paths[$scope.step][i]
-                $scope.grid[box[0]][box[1]].type = 'path';
+                $scope.grid[box[0]][box[1]].path = true;
             }
         }
 
@@ -127,7 +127,7 @@ angular.module('visualizationApp')
             var url = 'http://127.0.0.1:5000?info=' + JSON.stringify(payload)
 
             $http.get(url).then(function(response){
-                $scope.paths = response;
+                $scope.paths = response.data;
                 $scope.setStep(0);
             });
         }

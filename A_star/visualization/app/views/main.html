@@ -61,7 +61,7 @@
       <span ng-repeat="cell in row">
         <div 
           class="square"
-          ng-class="{'floor': cell.type === 'floor', 'shelf': cell.type === 'shelf', 'start': cell.type === 'start', 'end': cell.type === 'end', 'path': cell.type === 'path'}" 
+          ng-class="{'floor': cell.type === 'floor', 'shelf': cell.type === 'shelf', 'start': cell.type === 'start', 'end': cell.type === 'end', 'path': cell.path}" 
           ng-click="squareClick(cell)"></div>
       </span>
     </div>
