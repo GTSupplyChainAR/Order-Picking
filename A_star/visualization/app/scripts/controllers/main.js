@@ -127,7 +127,7 @@ angular.module('visualizationApp')
                 walls: walls
             };
 
-            var url = 'http://127.0.0.1:5000?info=' + JSON.stringify(payload);
+            var url = 'http://pickar.centralus.cloudapp.azure.com:8080?info=' + JSON.stringify(payload);
 
             $http.get(url).then(function(response){
                 $scope.paths = response.data;
